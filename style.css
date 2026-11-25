@@ -1,0 +1,410 @@
+/* =========================================================
+   Yuna Celestia 2nd Anniversary — v3
+   01 tokens · 02 base · 03 header · 04 hero · 05 message
+   06 schedule · 07 goods · 08 gallery · 09 cta/footer · 10 mobile
+   ========================================================= */
+
+/* 01. TOKENS */
+:root {
+  --navy: #0e162f;
+  --navy-2: #0d1631;
+  --navy-3: #101626;
+  --cream: #fff9ed;
+  --gold: #dcc47e;
+  --gold-hover: #ead696;
+  --gold-text: #e9d398;
+  --ink: #141b33;
+  --body: #2b2f3c;
+  --muted: #5c606c;
+  --container: 766px;
+  --serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  --script: 'Pinyon Script', 'Great Vibes', cursive;
+  --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --curve: min(9.1vw, 150px);
+}
+
+/* 02. BASE */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); color: var(--body); font-family: var(--serif); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, figure, ol, ul { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+.container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+.icon { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 50; padding: 10px 14px; background: var(--gold); color: var(--ink); font: 700 12px var(--sans); }
+.skip-link:focus { top: 8px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.dark { background: var(--navy-2); color: #fff; }
+.section-title { font-family: var(--serif); font-weight: 500; font-size: 29px; line-height: 1.2; letter-spacing: .01em; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold); color: #141b2e; transition: background .2s, transform .2s; }
+.btn:hover { background: var(--gold-hover); }
+.btn-small { height: 32px; padding: 0 18px; font: 700 8.5px/1 var(--sans); letter-spacing: .02em; }
+.btn-small .icon { width: 11px; height: 11px; }
+
+/* 03. HEADER */
+.site-header { position: relative; z-index: 20; background: var(--navy); color: #fff; }
+.header-inner { height: 50px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; flex-direction: column; align-items: center; font: 500 15px/1 var(--serif); letter-spacing: .02em; }
+.brand span { margin-top: 4px; color: var(--gold); font: 700 5.5px/1 var(--sans); letter-spacing: .06em; }
+.main-nav { display: flex; align-items: center; gap: 22px; font: 500 8.5px/1 var(--sans); letter-spacing: .04em; }
+.main-nav a { padding: 6px 0; transition: color .2s; }
+.main-nav a[aria-current="page"], .main-nav a:hover { color: var(--gold); }
+.nav-search .icon { width: 11px; height: 11px; stroke-width: 2.6; display: block; }
+.menu-toggle { display: none; }
+
+/* 04. HERO */
+.hero { position: relative; height: 432px; background: var(--navy); color: #fff; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-diamonds { position: absolute; inset: 0; background: url('assets/hero-diamonds.svg') center top / 22px 37px repeat; opacity: .45;
+  -webkit-mask-image: linear-gradient(90deg, transparent 12%, #000 20%, #000 80%, transparent 88%);
+          mask-image: linear-gradient(90deg, transparent 12%, #000 20%, #000 80%, transparent 88%); }
+.hero-sparkles { position: absolute; left: 50%; top: 0; width: 1440px; max-width: none; transform: translateX(-50%); opacity: .8; }
+.hero-star { position: absolute; width: 30px; height: 30px; }
+.st1 { left: calc(50% - 680px); top: 54px; width: 17px; height: 17px; }
+.st2 { left: calc(50% - 482px); top: 244px; width: 30px; height: 30px; }
+.st3 { left: calc(50% + 424px); top: 70px; width: 40px; height: 40px; }
+.st4 { left: calc(50% + 462px); top: 218px; width: 40px; height: 40px; }
+.hero-inner { position: relative; height: 100%; }
+.hero-frame { position: absolute; left: -6px; top: 15px; width: 784px; height: 402px; max-width: none; pointer-events: none; }
+.hero-visual { position: absolute; inset: 0; pointer-events: none; }
+.hero-orbit { position: absolute; left: 372px; top: 22px; width: 360px; max-width: none; opacity: .22; }
+.hero-character { position: absolute; left: 418px; top: 8px; width: 340px; max-width: none; filter: drop-shadow(0 0 18px rgba(4, 10, 26, .55)); }
+.hero-thanks { position: absolute; left: 578px; top: 48px; width: 176px; max-width: none; }
+.hero-logo { position: absolute; left: 630px; top: 248px; width: 128px; max-width: none; }
+.hero-copy { position: relative; z-index: 2; width: 312px; padding-top: 42px;
+margin-left: 32px;}
+.hero-copy h1 { font: 400 77px/0.94 var(--script); width: 420px; background: linear-gradient(175deg, #fbefc6 10%, #e6c983 45%, #c99d4e 75%, #f0d99b 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 9px 0 16px; margin-left: -4px; }
+.h1-line { display: block; }
+.hero-date { color: #b29c66; font: 400 12.5px/1 var(--serif); letter-spacing: .04em; }
+.hero-text { margin-top: 11px; color: #f4efe2; font: 500 14px/25px var(--serif); }
+.btn-hero { padding-top: 1px; margin-top: 16px;
+  margin-left: 60px;
+  width: 145px; height: 37px; font: 500 13.5px/1 var(--serif); letter-spacing: .04em; }
+.hero-curve { position: absolute; left: 0; bottom: 0; z-index: 5; width: 100%; height: var(--curve); fill: var(--cream); }
+
+/* 05. MESSAGE */
+.message { padding: 66px 0 68px; color: var(--ink); }
+.message-inner { display: flex; align-items: flex-start; }
+.message-copy { width: 290px; flex-shrink: 0; }
+.message-copy h2 { font: 600 28px/37px var(--serif); color: var(--ink); max-width: 260px; }
+.message-copy p { margin-top: 21px; font: 500 14px/26.6px var(--serif); color: #262a36; }
+.message-art { margin: 24px 0 0 102px; width: 378px; transform: rotate(3.5deg); }
+.message-art img { width: 100%; filter: drop-shadow(0 6px 12px rgba(20, 27, 51, .14)); }
+
+/* 06. SCHEDULE */
+.schedule { padding: 44px 0 44px; }
+.schedule .section-title { color: #fff; }
+.schedule-list { margin-top: 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.schedule-card { display: grid; grid-template-columns: 84px 1fr 14px; align-items: center; min-height: 120px; padding: 18px 16px 18px 20px; background: var(--gold); color: #1a2033; border-radius: 3px; transition: transform .2s, background .2s; }
+.schedule-card:hover { background: var(--gold-hover); transform: translateY(-2px); }
+.sc-date { display: flex; flex-direction: column; align-self: center; }
+.sc-day { font: 700 7.5px/1 var(--sans); letter-spacing: .02em; }
+.sc-date time { margin-top: 9px; font: 400 17px/1 var(--serif); }
+.sc-week { margin-top: 6px; font: 400 7px/1 var(--sans); }
+.sc-info { border-left: 1px solid #5b5236; padding: 2px 0 2px 16px; min-height: 66px; display: flex; flex-direction: column; justify-content: center; }
+.sc-info h3 { font: 400 16.5px/1.22 var(--serif); max-width: 84px; }
+.sc-time { margin-top: 7px; display: flex; align-items: center; gap: 5px; font: 400 8.5px/1 var(--sans); }
+.sc-time .icon { width: 10px; height: 10px; stroke-width: 2.6; }
+.sc-arrow .icon { width: 12px; height: 12px; stroke-width: 2.6; display: block; }
+
+/* 07. GOODS */
+.goods { padding: 58px 0 52px; color: var(--ink); }
+.goods .section-title { font-weight: 400; color: var(--ink); }
+.goods-grid { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.product { display: flex; flex-direction: column; }
+.product-img { aspect-ratio: 246 / 242; background: #fff; border: 1px solid #2a2f3e; border-radius: 4px; overflow: hidden; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; transition: transform .4s; }
+.product:hover .product-img img { transform: scale(1.04); }
+.product h3 { margin-top: 20px; font: 400 15.5px/1.2 var(--serif); }
+.product p { margin-top: 8px; max-width: 228px; font: 400 8.5px/13.5px var(--sans); color: var(--muted); min-height: 27px; }
+.product .btn { margin-top: 16px; width: 100%; }
+
+/* 08. GALLERY */
+.gallery { background: var(--navy-3); padding: 64px 0 55px; }
+.gallery .section-title { font-weight: 400; letter-spacing: .03em; }
+.gallery-frame { position: relative; margin-top: 30px; height: 284px; border: 1px solid #b59c58; border-radius: 4px; overflow: hidden; }
+.gallery-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transform: scale(1.16); transform-origin: 58% 18%; }
+.btn-download { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); height: 34px; padding: 0 26px; }
+.btn-download:hover { transform: translateX(-50%) translateY(-2px); }
+
+/* 09. CTA / FOOTER */
+.cta { position: relative; background: #fff; overflow: hidden; padding: 82px 0 78px; text-align: center; color: var(--ink); }
+.cta-clouds { position: absolute; left: 50%; bottom: -30px; width: 1560px; max-width: none; transform: translateX(-50%); opacity: .45; filter: saturate(.45) brightness(1.9) contrast(.75); pointer-events: none; }
+.cta-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.cta h2 { font: 400 35px/1.15 var(--serif); }
+.cta-text { margin-top: 16px; max-width: 445px; font: 400 10.5px/19px var(--sans); color: #333846; }
+.btn-youtube { margin-top: 34px; width: 183px; height: 37px; }
+.socials { margin-top: 22px; display: flex; gap: 14px; }
+.socials a { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; border: 1px solid #dadbe0; background: #fff; color: #1d2234; transition: border-color .2s, color .2s; }
+.socials a:hover { border-color: var(--gold); color: #9b7b32; }
+.socials .icon { width: 11px; height: 11px; }
+.site-footer { margin-top: 22px; padding-top: 14px; border-top: 1px solid #e6e3dc; width: 112px; display: flex; flex-direction: column; align-items: center; }
+.quote { width: 400px; font: italic 400 13.5px/1.3 var(--serif); color: #2b3042; }
+.copyright { margin-top: 7px; width: 500px; font: 400 6.5px/1 var(--sans); color: #8a8d97; letter-spacing: .03em; }
+
+/* 10. TABLET (641–813px): keep the desktop composition, scaled down */
+@media (min-width: 641px) and (max-width: 813px) {
+  .hero-inner { width: 766px; zoom: .9; }
+  .hero { height: 400px; }
+  .message-art { width: min(378px, 48%); margin-left: auto; }
+  .message-copy { width: 46%; }
+  .schedule-card { grid-template-columns: 58px 1fr 12px; padding: 16px 12px 16px 14px; }
+  .sc-info { padding-left: 10px; }
+  .sc-info h3 { max-width: none; }
+  .sc-time { white-space: nowrap; }
+}
+@media (min-width: 641px) and (max-width: 737px) {
+  .hero-inner { zoom: .8; }
+  .hero { height: 370px; }
+}
+@media (min-width: 641px) and (max-width: 680px) {
+  .hero-inner { zoom: .76; }
+}
+
+/* 11. MOBILE */
+@media (max-width: 640px) {
+  :root { --curve: 21vw; }
+  .container { width: calc(100% - 38px); }
+  .header-inner { height: 52px; }
+  .brand { align-items: center; font-size: 16px; }
+  .brand span { margin-top: 5px; font-size: 12px; letter-spacing: .01em; font-weight: 500; }
+  .menu-toggle { display: grid; place-items: center; width: 40px; height: 40px; margin-right: -10px; background: none; border: 0; color: #fff; cursor: pointer; }
+  .menu-toggle .icon { width: 18px; height: 18px; stroke-width: 2.4; }
+  .main-nav { position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; background: var(--navy); font-size: 12px; padding: 4px 24px 14px; border-top: 1px solid rgba(220, 196, 126, .25); }
+  .main-nav a { padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+  .has-js .main-nav:not(.is-open) { display: none; }
+  html:not(.has-js) .menu-toggle { display: none; }
+  html:not(.has-js) .header-inner { flex-wrap: wrap; height: auto; padding: 12px 0 8px; }
+  html:not(.has-js) .main-nav { position: static; width: 100%; flex-direction: row; flex-wrap: wrap; gap: 4px 16px; padding: 10px 0 0; border: 0; background: none; font-size: 11px; }
+  html:not(.has-js) .main-nav a { padding: 4px 0; border: 0; }
+
+  /* Mobile Hero (20261122 依手機稿重排) */
+  .hero { height: auto; padding-bottom: calc(var(--curve) - 40px); border-bottom: 0; }
+  .hero-diamonds { display: block; -webkit-mask-image: none; mask-image: none; opacity: .5; }
+  .hero-sparkles { display: block; left: 50%; top: 6px; width: 440px; transform: translateX(-50%); opacity: .9; }
+  .hero-bg::after { content: ""; position: absolute; left: 50%; bottom: calc(var(--curve) - 30px); width: 440px; height: 184px; transform: translateX(-50%) scaleY(-1); background: url('assets/hero-sparkles.webp') center / 100% 100% no-repeat; opacity: .75; }
+  .hero-star { display: block; }
+  .st1 { left: 14px; top: 22px; width: 16px; height: 16px; }
+  .st2 { left: 18px; top: auto; bottom: calc(var(--curve) + 260px); width: 20px; height: 20px; }
+  .st3 { left: auto; right: 16px; top: 30px; width: 26px; height: 26px; }
+  .st4 { left: auto; right: 12px; top: auto; bottom: calc(var(--curve) + 230px); width: 22px; height: 22px; }
+  .hero-inner { display: flex; flex-direction: column; height: auto; }
+  .hero-frame, .hero-orbit { display: none; }
+  .hero-visual { position: relative; inset: auto; margin-top: 18px; z-index: 1; }
+  .hero-character { position: relative; left: auto; top: auto; width: 340px; max-width: 100%; margin: 0 auto;
+    -webkit-mask-image: linear-gradient(#000 70%, transparent 98%); mask-image: linear-gradient(#000 70%, transparent 98%); }
+  .hero-logo { display: block; left: auto; right: -8px; top: 32%; width: 138px; z-index: 2; filter: drop-shadow(0 2px 6px rgba(4, 10, 26, .6)); }
+  .hero-thanks { display: block; left: auto; right: -4px; top: calc(32% + 110px); width: 150px; z-index: 2; }
+  .hero-copy { width: auto; padding-top: 0; margin: -150px 0 0; z-index: 3; }
+  .hero-copy h1 { font-size: min(74px, 19vw); line-height: .9; width: auto; margin: 0 0 0 -6px; padding: 6px 0 10px; filter: drop-shadow(0 2px 6px rgba(4, 10, 26, .7)); }
+  .hero-copy h1 .h1-line:first-child { margin-left: 4px; }
+  .hero-copy h1 .h1-line:last-child { white-space: nowrap; margin-top: -4px; }
+  .hero-date { margin-top: 14px; font-size: 14px; color: var(--gold-text); text-align: left; }
+  .hero-text { margin-top: 12px; max-width: none; font-size: 17px; line-height: 29px; text-align: left; }
+  .btn-hero { display: flex; margin: 26px auto 0; width: 170px; height: 46px; font-size: 16px; }
+  .hero-curve { bottom: -1px; }
+
+  .message { padding: 56px 0 62px; }
+  .message-inner { flex-direction: column; }
+  .message-copy { width: auto; }
+  .message-copy h2 { font-size: 32px; line-height: 40px; max-width: 300px; }
+  .message-copy p { margin-top: 28px; font-size: 17.5px; line-height: 31px; }
+  .message-copy p br { display: none; }
+  .message-art { margin: 52px 0 0; width: 100%; transform: rotate(4deg) scale(.98); }
+
+  /* 直播行程表：手機也用桌機的橫式卡片（20261122） */
+  .schedule { padding: 34px 0 32px; }
+  .schedule .container { width: calc(100% - 60px); }
+  .section-title { font-size: 31px; }
+  .schedule-list { grid-template-columns: 1fr; gap: 16px; margin-top: 22px; }
+  .schedule-card { grid-template-columns: 76px 1fr 16px; align-items: center; min-height: 138px; padding: 18px 16px 18px 18px; }
+  .sc-day { font-size: 11px; }
+  .sc-date time { margin-top: 9px; font-size: 24px; }
+  .sc-week { margin-top: 7px; font-size: 11px; }
+  .sc-info { padding: 2px 8px 2px 16px; min-height: 84px; }
+  .sc-info h3 { font-size: 19px; line-height: 1.2; max-width: none; }
+  .sc-time { margin-top: 10px; font-size: 12.5px; }
+  .sc-time .icon { width: 13px; height: 13px; }
+  .sc-arrow .icon { width: 15px; height: 15px; }
+
+  .goods { padding: 36px 0 30px; }
+  .goods .section-title { line-height: 1.25; }
+  .goods-grid { grid-template-columns: 1fr; gap: 22px; margin-top: 26px; }
+  .product-img { aspect-ratio: 1 / 1.01; }
+  .product h3 { margin-top: 18px; font-size: 19px; }
+  .product p { margin-top: 8px; max-width: none; font-size: 14px; line-height: 21px; min-height: 0; }
+  .product .btn { margin-top: 20px; }
+  .btn-small { height: 43px; font-size: 14px; }
+  .btn-small .icon { width: 15px; height: 15px; }
+
+  .gallery { padding: 36px 0 34px; }
+  .gallery-frame { margin-top: 24px; height: auto; overflow: visible; border: 0; }
+  .gallery-frame img { height: 220px; transform: none; object-position: center 30%; border: 1px solid #b59c58; border-radius: 4px; }
+  .btn-download { position: static; transform: none; display: flex; width: 100%; margin-top: 26px; height: 43px; }
+  .btn-download:hover { transform: none; }
+
+  .cta { padding: 60px 0 30px; }
+  .cta-clouds { display: none; }
+  .cta h2 { font-size: 34px; }
+  .cta-text { margin-top: 18px; font-size: 15px; line-height: 25px; max-width: 320px; }
+  .btn-youtube { width: 100%; height: 43px; margin-top: 26px; }
+  .socials { margin-top: 24px; gap: 10px; }
+  .socials a { width: 40px; height: 40px; }
+  .socials .icon { width: 14px; height: 14px; }
+  .site-footer { margin-top: 20px; width: 160px; padding-top: 12px; }
+  .quote { width: 352px; font-size: 16px; color: #8d7fb8; }
+  .copyright { width: 352px; font-size: 8px; margin-top: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* Hero 文字整塊上下置中（桌機／平板） */
+@media (min-width: 641px) {
+  .hero-inner { display: flex; align-items: center; }
+  .hero-copy { padding-top: 0; }
+}
+
+/* 導覽列固定在頂部 */
+.site-header { position: sticky; top: 0; z-index: 50; }
+html { scroll-padding-top: 60px; }
+
+/* 補弧線底部細縫 */
+.hero-curve { bottom: -2px; height: calc(var(--curve) + 2px); }
+
+/* 深藍區塊加菱形紋（同 Hero） */
+.dark { position: relative; isolation: isolate; }
+.dark::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url('assets/hero-diamonds.svg') center top / 22px 37px repeat; opacity: .45; pointer-events: none; }
+
+/* 修弧線下方細灰線（20261122）：原本是米色 SVG 蓋在深藍底上，Hero 底邊落在小數像素時（如 125% 縮放）兩層半透明邊緣疊出一條灰線。
+   改用同一條弧線當遮罩直接把深藍區塊裁成弧形，形狀不變，底下不再有深藍底。
+ */
+.hero {
+  -webkit-mask: linear-gradient(#000, #000) 0 0 / 100% calc(100% - var(--curve) + 1px) no-repeat,
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0Q720 200 1440 0Z'/%3E%3C/svg%3E") left 2px bottom 0 / calc(100% - 4px) var(--curve) no-repeat;
+          mask: linear-gradient(#000, #000) 0 0 / 100% calc(100% - var(--curve) + 1px) no-repeat,
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0Q720 200 1440 0Z'/%3E%3C/svg%3E") left 2px bottom 0 / calc(100% - 4px) var(--curve) no-repeat;
+}
+.hero-curve { visibility: hidden; }
+
+/* 修 Hero 右邊白線（20261122）：遮罩會讓 Hero 在小數像素寬度（如 390px × 1.25）時最右邊一欄變淡。
+   Hero 左右各往外多 2px（用 padding 補回，內容寬度不變），外層 main 裁掉多出的部分，不會出現橫向捲軸。 */
+main { overflow-x: clip; }
+.hero { margin-inline: -2px; padding-inline: 2px; }
+.hero-bg { left: 2px; right: 2px; }   /* 背景圖層維持原本位置 */
+
+/* =========================================================
+   12. 輕量互動（20261122）
+   - 只在使用者沒有開「減少動態效果」時啟用
+   - 進場隱藏只在 script.js 成功執行（html.fx）後才生效；JS 失敗時內容照常顯示
+   - 只用 translate / scale / rotate 個別屬性做動畫，不覆蓋原本的 transform
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---- Hero 首屏固定，下一區往上覆蓋（布幕效果） ---- */
+  html.fx .hero { position: sticky; top: var(--hero-top, 50px); z-index: 0; }
+  html.fx main > section:not(.hero) { position: relative; z-index: 2; }
+  html.fx .goods { background: var(--cream); }
+  /* Message 區往上疊在 Hero 弧線下方，頂端用同一條弧線遮罩，靜止時外觀不變，捲動時弧形米色邊往上蓋 */
+  html.fx .message {
+    background: var(--cream);
+    margin-top: calc(-1 * var(--curve));
+    padding-top: calc(66px + var(--curve));
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0Q720 200 1440 0V100H0Z'/%3E%3C/svg%3E") left top / 100% var(--curve) no-repeat,
+                  linear-gradient(#000, #000) left bottom / 100% calc(100% - var(--curve) + 1px) no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0Q720 200 1440 0V100H0Z'/%3E%3C/svg%3E") left top / 100% var(--curve) no-repeat,
+                  linear-gradient(#000, #000) left bottom / 100% calc(100% - var(--curve) + 1px) no-repeat;
+  }
+
+  /* Message 區上緣（弧線那一段）疊在 Hero 上面，原本會擋住 WATCH NOW 的點擊（20261124 修）：
+     整區不接收點擊，只有弧線以下的範圍和裡面的內容接收，Hero 弧線內的按鈕就點得到 */
+  html.fx .message { pointer-events: none; }
+  html.fx .message > * { pointer-events: auto; }
+  html.fx .message::before { content: ""; position: absolute; left: 0; right: 0; top: var(--curve); bottom: 0; z-index: -1; pointer-events: auto; }
+
+  /* ---- 菱格紋固定不隨頁面捲動：JS 依捲動位置位移花紋（不用 background-attachment: fixed，iOS 也可用；也不用 clip-path，避免區塊交界出現細線） ---- */
+  html.fx .dark::before { background-position: center calc(var(--sy, 0px) - var(--st, 0px)); }
+
+  /* ---- 金色星塵：原本的星塵圖和星星隨機閃爍，加上 JS 的小畫布漂浮粒子 ---- */
+  .hero-sparkles { animation: fx-twinkle-soft 6s ease-in-out infinite alternate; }
+  .hero-star { animation: fx-star 3.2s ease-in-out infinite; }
+  .st2 { animation-duration: 4.1s; animation-delay: -1.3s; }
+  .st3 { animation-duration: 3.6s; animation-delay: -2.2s; }
+  .st4 { animation-duration: 4.6s; animation-delay: -.7s; }
+  .hero-dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+  /* ---- 角色立繪緩慢上下浮動 ---- */
+  .hero-character { animation: fx-float 5.6s ease-in-out infinite alternate; }
+
+  /* ---- 金色裝飾框開場淡入展開 ---- */
+  .hero-frame { animation: fx-frame 1.4s cubic-bezier(.2, .7, .2, 1) .1s both; }
+
+  /* ---- Anniversary 標題由下往上、模糊轉清晰 ---- */
+  .hero-copy h1 { animation: fx-title 1.2s cubic-bezier(.2, .7, .2, 1) .35s both; }
+  .hero-date, .hero-text, .btn-hero { animation: fx-rise .9s ease-out both; }
+  .hero-date { animation-delay: .9s; }
+  .hero-text { animation-delay: 1.05s; }
+  .btn-hero  { animation-delay: 1.2s; }
+
+  /* ---- LOGO 延遲淡入（在標題之後） ---- */
+  .hero-logo { animation: fx-fade 1s ease-out 1.35s both; }
+  .hero-thanks { animation: fx-fade 1s ease-out 1.6s both; }
+
+  /* ---- WATCH NOW 間歇金色掃光 ---- */
+  .btn-hero { position: relative; overflow: hidden; isolation: isolate; }
+  .btn-hero::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 60%; pointer-events: none;
+    background: linear-gradient(105deg, transparent 0%, rgba(255, 248, 220, 0) 20%, rgba(255, 248, 220, .85) 50%, rgba(255, 248, 220, 0) 80%, transparent 100%);
+    translate: -120% 0; animation: fx-shine 4s ease-in-out 2.4s infinite; }
+
+  /* ---- 逐一進場（IntersectionObserver 加 .is-in） ---- */
+  html.fx .reveal { opacity: 0; translate: 0 26px; transition: opacity .8s ease-out var(--d, 0s), translate .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
+  html.fx .reveal-line { opacity: 0; transition: opacity .9s ease-out var(--d, 0s); }
+  html.fx .reveal.is-in, html.fx .reveal-line.is-in { opacity: 1; translate: none; }
+
+  /* ---- 紀念卡片 3D 傾斜（只限滑鼠等精準指標） ---- */
+  @media (hover: hover) and (pointer: fine) {
+    html.fx .message-inner { perspective: 1000px; }
+    html.fx .message-art { position: relative; transition: rotate .7s cubic-bezier(.2, .7, .2, 1), opacity .8s ease-out var(--d, 0s), translate .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
+    html.fx .message-art.is-tilting { transition: rotate .12s linear, opacity .8s ease-out, translate .8s ease-out; }
+    /* 反光只蓋在卡片的金框範圍內（金框約在圖片內側 3.75% / 7.5%） */
+    .card-glare { position: absolute; inset: 7.5% 3.75%; pointer-events: none; opacity: 0; transition: opacity .5s;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 244, 210, .32), rgba(255, 244, 210, 0) 45%),
+                  linear-gradient(var(--ga, 120deg), rgba(255, 236, 180, 0) 38%, rgba(255, 236, 180, .14) 50%, rgba(255, 236, 180, 0) 62%);
+      mix-blend-mode: screen; }
+    /* 金框邊上的移動高光 */
+    .card-glare::after { content: ""; position: absolute; inset: -1px; padding: 3px;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 240, 190, 1), rgba(255, 220, 140, .35) 22%, rgba(255, 220, 140, 0) 42%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+              mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+    .message-art.is-tilting .card-glare { opacity: 1; }
+  }
+
+  @keyframes fx-twinkle-soft { from { opacity: .8; } 50% { opacity: .5; } to { opacity: .95; } }
+  @keyframes fx-star { 0%, 100% { opacity: 1; scale: 1; } 45% { opacity: .35; scale: .72; } 60% { opacity: 1; scale: 1.08; } }
+  @keyframes fx-float { from { translate: 0 0; } to { translate: 0 -5px; } }
+  @keyframes fx-frame { from { opacity: 0; scale: .9 .82; } }
+  @keyframes fx-title { from { opacity: 0; translate: 0 36px; filter: blur(10px); } }
+  @keyframes fx-rise { from { opacity: 0; translate: 0 14px; } }
+  @keyframes fx-fade { from { opacity: 0; } }
+  @keyframes fx-shine { 0% { translate: -120% 0; } 28%, 100% { translate: 220% 0; } }
+}
+
+/* 手機：Message 區上疊時保留原本的上方留白；標題動畫要帶著手機版的陰影 */
+@media (prefers-reduced-motion: no-preference) and (max-width: 640px) {
+  html.fx .message { padding-top: calc(56px + var(--curve)); }
+  .hero-copy h1 { animation-name: fx-title-m; }
+  @keyframes fx-title-m { from { opacity: 0; translate: 0 36px; filter: drop-shadow(0 2px 6px rgba(4, 10, 26, .7)) blur(10px); } }
+}
+
+/* Hero 段落改兩行、WATCH NOW 不壓金框（20261124，只限桌機／平板）
+   字級略縮＋兩行平均斷行，文字不碰到右邊角色；整塊左移 10px 讓出空間 */
+@media (min-width: 641px) {
+  .hero-copy { width: 400px; margin-left: 22px; }
+  .hero-text { font-size: 12.5px; line-height: 22px; max-width: 392px; text-wrap: balance; }
+  .btn-hero { margin-top: 14px; margin-left: 96px; }
+}
