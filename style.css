@@ -408,3 +408,87 @@ main { overflow-x: clip; }
   .hero-text { font-size: 12.5px; line-height: 22px; max-width: 392px; text-wrap: balance; }
   .btn-hero { margin-top: 14px; margin-left: 96px; }
 }
+
+/* =========================================================
+   13. 字體放大（20261126）：偏小的字放大到好讀的大小，版面不變
+   ========================================================= */
+@media (min-width: 641px) {
+  .brand span { margin-top: 5px; font-size: 8px; letter-spacing: .05em; }
+  .main-nav { gap: 20px; font-size: 11px; white-space: nowrap; }
+  .nav-search .icon { width: 13px; height: 13px; }
+  .hero-date { font-size: 14px; }
+
+  .sc-day { font-size: 10px; }
+  .sc-week { font-size: 10px; }
+  .sc-time { font-size: 11px; white-space: nowrap; }
+  .sc-time .icon { width: 12px; height: 12px; }
+
+  .product p { font-size: 11px; line-height: 17px; min-height: 34px; }
+  .btn-small { height: 36px; font-size: 11px; }
+  .btn-small .icon { width: 13px; height: 13px; }
+  .btn-download { height: 38px; }
+  .btn-youtube { width: 210px; height: 40px; }
+
+  .quote { font-size: 16px; }
+  .copyright { margin-top: 9px; font-size: 9px; }
+}
+@media (max-width: 640px) {
+  .brand span { font-size: 13px; }
+  .sc-day { font-size: 12.5px; }
+  .sc-week { font-size: 12.5px; }
+  .sc-time { font-size: 14px; white-space: nowrap; }
+  .sc-time .icon { width: 14px; height: 14px; }
+  .copyright { width: 352px; max-width: calc(100vw - 38px); font-size: 10px; line-height: 1.5; text-align: center; text-wrap: balance; }
+}
+
+/* =========================================================
+   14. 內文字體再放大（20261126）：商品標題／說明、Message 段落、Let's Celebrate 內文
+   商品說明撐滿剩餘高度，三欄按鈕維持對齊；Message 段落桌機改為連續排版並平均斷行
+   ========================================================= */
+@media (min-width: 641px) {
+  .product h3 { font-size: 18px; }
+  .product p { flex: 1 0 auto; max-width: none; font-size: 13px; line-height: 19.5px; min-height: 0; text-wrap: pretty; }
+  .message-copy { width: 350px; }
+  .message-copy h2 { max-width: 300px; }
+  .message-copy p { font-size: 16px; line-height: 28.5px; text-wrap: balance; }
+  .message-copy p br { display: none; }
+  .message-art { margin-left: 42px; }
+  .cta-text { max-width: 560px; font-size: 14px; line-height: 23px; text-wrap: balance; }
+}
+@media (min-width: 641px) and (max-width: 813px) {
+  .message-copy { width: 46%; }
+  .message-art { margin-left: auto; }
+}
+@media (max-width: 640px) {
+  .product h3 { font-size: 20px; }
+  .product p { font-size: 15px; line-height: 22.5px; text-wrap: pretty; }
+  .cta-text { max-width: 340px; font-size: 16px; line-height: 26px; text-wrap: balance; }
+}
+
+/* =========================================================
+   15. Hero 字體放大（20261126）：日期 17px、內文 15px 三行平均斷行（桌機／平板）
+   整塊略往上移，WATCH NOW 不壓金框、文字不碰右邊角色
+   ========================================================= */
+@media (min-width: 641px) {
+  .hero-copy { padding-top: 0; margin-top: -34px; }
+  .hero-copy h1 { padding-bottom: 12px; }
+  .hero-date { font-size: 17px; }
+  .hero-text { margin-top: 10px; font-size: 15px; line-height: 24px; max-width: 392px; text-wrap: balance; }
+  .btn-hero { margin-top: 13px; }
+}
+
+/* =========================================================
+   16. 標題配色 方案 C：典雅靛藍＋金色點綴（20261126）
+   淺底標題：靛藍 #2c3a7a；深底標題：星霧白 #f4efe2；
+   區塊大標底下加一條 36px 香檳金細線 #dcc47e 當點綴（商品標題不加線）
+   ========================================================= */
+.message-copy h2,
+.goods .section-title,
+.cta h2,
+.product h3 { color: #2c3a7a; }
+.schedule .section-title,
+.gallery .section-title { color: #f4efe2; }
+.message-copy h2::after,
+.section-title::after,
+.cta h2::after { content: ""; display: block; width: 36px; height: 2px; margin-top: 10px; background: #dcc47e; border-radius: 1px; }
+.cta h2::after { margin-inline: auto; }
