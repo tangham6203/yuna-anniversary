@@ -492,3 +492,12 @@ main { overflow-x: clip; }
 .section-title::after,
 .cta h2::after { content: ""; display: block; width: 36px; height: 2px; margin-top: 10px; background: #dcc47e; border-radius: 1px; }
 .cta h2::after { margin-inline: auto; }
+
+/* =========================================================
+   17. 頁尾雲海滿版（20261127）：寬螢幕（>1560px）左右不再露白邊
+   雲海圖原本固定 1560px 寬，1920／2560 寬螢幕左右會斷層；
+   改成「至少 1560px、且至少比視窗寬 40px」，1440 以下構圖完全不變
+   ========================================================= */
+@media (min-width: 641px) {
+  .cta-clouds { width: max(1560px, calc(100% + 40px)); }
+}
