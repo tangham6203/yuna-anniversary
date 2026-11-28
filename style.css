@@ -501,3 +501,39 @@ main { overflow-x: clip; }
 @media (min-width: 641px) {
   .cta-clouds { width: max(1560px, calc(100% + 40px)); }
 }
+
+/* =========================================================
+   18. 版心放大到 1200px（預覽 20261127）
+   做法：版心（.container）和 Hero 背景層用 CSS zoom 等比例放大 --k 倍，
+   區塊上下留白、Hero 高度、弧線深度也乘上 --k，整頁比例跟 766px 版一模一樣，只是更大。
+   視窗寬度分級：≥1340 → 1200px；1200–1339（含 1280 筆電）→ 1100px；1100–1199 → 1040px；950–1099 → 900px；
+   949 以下維持原本 766px／平板／手機版不變。
+   ========================================================= */
+@media (min-width: 950px) {
+  :root { --k: 1.1749; --curve: min(9.1vw, calc(131px * var(--k))); }   /* 766 → 900 */
+}
+@media (min-width: 1100px) {
+  :root { --k: 1.3577; }                                                /* 766 → 1040 */
+}
+@media (min-width: 1200px) {
+  :root { --k: 1.4360; }                                                /* 766 → 1100（金框左右留約 70px，不貼邊） */
+}
+@media (min-width: 1340px) {
+  :root { --k: 1.5666; }                                                /* 766 → 1200 */
+}
+@media (min-width: 950px) {
+  html { scroll-padding-top: calc(60px * var(--k)); }
+  .container, .hero-bg { zoom: var(--k); }
+
+  .hero { height: calc(432px * var(--k)); }
+  .message { padding: calc(66px * var(--k)) 0 calc(68px * var(--k)); }
+  .schedule { padding: calc(44px * var(--k)) 0; }
+  .goods { padding: calc(58px * var(--k)) 0 calc(52px * var(--k)); }
+  .gallery { padding: calc(64px * var(--k)) 0 calc(55px * var(--k)); }
+  .cta { padding: calc(82px * var(--k)) 0 calc(78px * var(--k)); }
+  .cta-clouds { bottom: calc(-30px * var(--k)); width: max(calc(1560px * var(--k)), calc(100% + 40px)); }
+  .dark::before { background-size: calc(22px * var(--k)) calc(37px * var(--k)); }
+}
+@media (min-width: 950px) and (prefers-reduced-motion: no-preference) {
+  html.fx .message { padding-top: calc(66px * var(--k) + var(--curve)); }
+}
